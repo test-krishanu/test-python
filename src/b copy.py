@@ -10,6 +10,13 @@ from tree_queries.models import TreeNode
 from tree_queries.query import TreeQuerySet
 
 
+class UUIDAbstractModel(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    class Meta:
+        abstract = True
+
+
 class Company(TimeStampedModel):
     name = models.CharField(max_length=512)
 
